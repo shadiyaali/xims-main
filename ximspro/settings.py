@@ -16,6 +16,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
  
 
 from pathlib import Path
+from pathlib import Path
 import dj_database_url
 from decouple import config
 from datetime import timedelta
@@ -33,8 +34,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
  
- 
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY='django-insecure-@r3rc(03@c+)0houph19-v^3^!fzbn@=l@ju5m^0q)392i5jh('
+
 
 
  
@@ -156,30 +157,13 @@ WSGI_APPLICATION = 'ximspro.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+ 
 
 DATABASES = {
-    'default': dj_database_url.parse("postgresql://ximspro_s7x3_user:kyc4PfRLUj0Yj9NussZA5uh6HCILlfnS@dpg-ctdtu5rtq21c73fu6f20-a.oregon-postgres.render.com/ximspro_s7x3"
-        
-    )
+    "default":dj_database_url.parse("postgresql://ximspro_s7x3_user:kyc4PfRLUj0Yj9NussZA5uh6HCILlfnS@dpg-ctdtu5rtq21c73fu6f20-a.oregon-postgres.render.com/ximspro_s7x3")
 }
 
-DATABASES = {
-    'default': {
-        'ENGINE': config('DATABASE_ENGINE'),
-        'NAME': config('DATABASE_NAME'),
-        'USER': config('DATABASE_USER'),
-        'PASSWORD': config('DATABASE_PASSWORD'),
-        'HOST': config('DATABASE_HOST'),
-        'PORT': config('DATABASE_PORT'),
-    }
-}
-
+ 
 # DATABASES = {
 #     'default': {
 #         'ENGINE': config('DATABASE_ENGINE'),
@@ -190,6 +174,7 @@ DATABASES = {
 #         'PORT': config('DATABASE_PORT'),
 #     }
 # }
+ 
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
