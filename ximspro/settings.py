@@ -16,7 +16,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
  
 
 from pathlib import Path
- 
+import dj_database_url
 from decouple import config
 from datetime import timedelta
 import os
@@ -162,7 +162,13 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
- 
+
+DATABASES = {
+    'default': dj_database_url.parse("postgresql://ximspro_s7x3_user:kyc4PfRLUj0Yj9NussZA5uh6HCILlfnS@dpg-ctdtu5rtq21c73fu6f20-a.oregon-postgres.render.com/ximspro_s7x3"
+        
+    )
+}
+
 DATABASES = {
     'default': {
         'ENGINE': config('DATABASE_ENGINE'),
