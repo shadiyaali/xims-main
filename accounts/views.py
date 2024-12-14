@@ -111,3 +111,10 @@ class DeleteCompanyView(APIView):
             raise NotFound("Company not found") 
         company.delete()
         return Response({"message": "Company has been deleted successfully."}, status=status.HTTP_204_NO_CONTENT)
+    
+class PermissionListView(APIView):
+    def get(self, request, *args, **kwargs):
+        print("request.data",request.data)
+        permissions = Permission.objects.all()
+        serializer = PermissionSerializer(permissions, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)

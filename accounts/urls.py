@@ -8,5 +8,6 @@ urlpatterns = [
     path('companies/update/<int:id>/', CompanyUpdateView.as_view(), name='company-update'),
     path('company/<int:id>/change-status/', ChangeCompanyStatusView.as_view(), name='change-company-status'),
     path('company/<int:id>/delete/', DeleteCompanyView.as_view(), name='delete-company'),
+    path('permissions/', PermissionListView.as_view(), name='permission-list'),
 ]
 

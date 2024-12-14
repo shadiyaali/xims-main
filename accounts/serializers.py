@@ -54,3 +54,8 @@ class CompanyUpdateSerializer(serializers.ModelSerializer):
             instance.permissions.set(permissions)
 
         return instance
+    
+class PermissionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Permission
+        fields = ['id', 'name']
