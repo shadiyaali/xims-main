@@ -131,3 +131,9 @@ class SingleCompanyListView(generics.ListAPIView):
             return Company.objects.filter(id=company.id) 
         except Company.DoesNotExist:
             raise NotFound(detail="Company with the given id does not exist")
+        
+class CompanyCountView(APIView):
+  
+    def get(self, request, *args, **kwargs):
+        company_count = Company.objects.count()
+        return Response({"count": company_count}, status=status.HTTP_200_OK)
