@@ -48,6 +48,7 @@ class Company(models.Model):
     STATUS_CHOICES = [
         ('active', 'Active'),
         ('blocked', 'Blocked'),
+          
          
     ] 
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='active')

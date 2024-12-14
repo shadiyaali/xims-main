@@ -118,3 +118,16 @@ class PermissionListView(APIView):
         permissions = Permission.objects.all()
         serializer = PermissionSerializer(permissions, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+    
+class SingleCompanyListView(generics.ListAPIView):
+    serializer_class = CompanyGetSerializer
+
+    def get_queryset(self):
+      
+        company_id = self.kwargs['id']
+       
+        try:
+            company = Company.objects.get(id=company_id)
+            return Company.objects.filter(id=company.id) 
+        except Company.DoesNotExist:
+            raise NotFound(detail="Company with the given id does not exist")

@@ -9,5 +9,6 @@ urlpatterns = [
     path('company/<int:id>/change-status/', ChangeCompanyStatusView.as_view(), name='change-company-status'),
     path('company/<int:id>/delete/', DeleteCompanyView.as_view(), name='delete-company'),
     path('permissions/', PermissionListView.as_view(), name='permission-list'),
+    path('companies/<int:id>/', SingleCompanyListView.as_view(), name='company-list'),
 ]
 
