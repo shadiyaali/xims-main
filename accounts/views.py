@@ -120,7 +120,7 @@ class PermissionListView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
     
 class SingleCompanyListView(generics.ListAPIView):
-    serializer_class = CompanyGetSerializer
+    serializer_class = CompanySingleSerializer
 
     def get_queryset(self):
       

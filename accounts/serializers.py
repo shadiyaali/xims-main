@@ -26,6 +26,21 @@ class CompanyGetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Company
         fields = '__all__'
+        
+        
+        
+class PermissionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Permission
+        fields = ['name']   
+
+class CompanySingleSerializer(serializers.ModelSerializer):
+   
+    permissions = PermissionSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Company
+        fields = '__all__'
 
 class CompanyUpdateSerializer(serializers.ModelSerializer):
     permissions = serializers.PrimaryKeyRelatedField(queryset=Permission.objects.all(), many=True)
